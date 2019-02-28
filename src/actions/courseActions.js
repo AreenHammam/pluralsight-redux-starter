@@ -16,11 +16,12 @@ export function updateCourseSuccess(course) {
   return {type: types.UPDATE_COURSE_SUCCESS, course};
 }
 
+//async call to API, we want to handle the promise and then dispatch an action when the promise is resolved
 export function loadCourses() {
-  return function(dispatch) {
+  return function(dispatch) { // always return a func that accepts dispatch
     dispatch(beginAjaxCall());
     return courseApi.getAllCourses().then(courses => {
-      dispatch(loadCoursesSuccess(courses));
+      dispatch(loadCoursesSuccess(courses)); // dispatch action creator
     }).catch(error => {
       throw(error);
     });

@@ -8,6 +8,7 @@ export default function courseReducer(state = initialState.courses, action) {
       return action.courses;
 
     case types.CREATE_COURSE_SUCCESS:
+      // debugger;
       return [
         ...state, // spread the array, take all the values in it and defined them here inline. this ends up returing a new instance of our state array
         Object.assign({}, action.course) // create deep copy of the of the course thats passed in

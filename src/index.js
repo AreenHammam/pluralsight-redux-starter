@@ -17,6 +17,7 @@ import '../node_modules/toastr/build/toastr.min.css';
 
 // update our app's entry point to work with Redux
 const store = configureStore(); // create an instance of the store (optional to pass initial state)
+// if we are passing initial state here we will override the default params that we specify in the reducer, we pass the initial state to the store if we want to hydrate the store using some separate state that is passed down from the server or stored in local storage
 // when to pass initial state, if we want tp rehydrate the store using some separte state thats passed down from the server or stored in local storage. but in this case, we override the default params that we specify in our reducers
 store.dispatch(loadCourses()); // dispach is fun that allow you to fire off your actions
 store.dispatch(loadAuthors());
